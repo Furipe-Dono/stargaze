@@ -9,7 +9,7 @@ class MySQLConnection:
         self.connection = pymysql.connect(
             host=os.getenv("MYSQLHOST", "localhost"),
             user=os.getenv("MYSQLUSER", "root"),
-            password=os.getenv("MYSQLPASSWORD", "root"),
+            password=os.getenv("MYSQLPASSWORD", ""),
             database=os.getenv("MYSQLDATABASE", db),
             port=int(os.getenv("MYSQLPORT", 3306)),
             cursorclass=pymysql.cursors.DictCursor,
@@ -25,8 +25,6 @@ class MySQLConnection:
             with self.connection.cursor() as cursor:
 
                 query = cursor.mogrify(query, data)
-
-                print("Running Query:", query)
 
                 cursor.execute(query)
 
