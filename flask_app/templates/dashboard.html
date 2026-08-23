@@ -111,10 +111,14 @@
                                 >
                                     Editar
                                 </a>
-                                <a
-                                    href="/publications/delete/{{ publication.id }}"
-                                >
-                                    Borrar
+                               <form
+                                   action="/publications/delete/{{ publication.id }}"
+                                   method="POST"
+                               >
+                                   <button type="submit">
+                                         Borrar
+                                   </button>
+                                </form>
                                 </a>
                             {% endif %}
                         </div>
@@ -145,12 +149,17 @@
                             </strong>
                         </span>
                         {% if not publication.user_liked %}
-                            <a
-                                class="btn btn-copper"
-                                href="/publications/like/{{ publication.id }}"
-                            >
-                                Me gusta
-                            </a>
+                    <form
+                        action="/publications/like/{{ publication.id }}"
+                        method="POST"
+                    >
+                        <button
+                            type="submit"
+                            class="btn btn-copper"
+                        >
+                            Me gusta
+                        </button>
+                      </form>
                         {% endif %}
                     </div>
                 </article>
