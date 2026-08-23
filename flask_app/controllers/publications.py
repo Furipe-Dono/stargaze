@@ -109,7 +109,10 @@ def update_publication(id):
     return redirect("/dashboard")
 
 
-@app.route("/publications/delete/<int:id>")
+@app.route(
+    "/publications/delete/<int:id>",
+    methods=["POST"]
+)
 def delete_publication(id):
 
     if "user_id" not in session:
@@ -132,7 +135,10 @@ def delete_publication(id):
     return redirect("/dashboard")
 
 
-@app.route("/publications/like/<int:id>")
+@app.route(
+    "/publications/like/<int:id>",
+    methods=["POST"]
+)
 def like_publication(id):
 
     if "user_id" not in session:
