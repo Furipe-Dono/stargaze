@@ -6,6 +6,14 @@ The application allows users to register, authenticate, create and manage public
 
 This project was developed as part of my Full Stack Python certification and demonstrates backend development, relational database design, authentication, CRUD operations, validation, and deployment.
 
+## 🌐 Live Demo
+
+The application is deployed and available online.
+
+**[Launch Stargaze →](https://web-production-bd92b.up.railway.app/)**
+
+> Create an account to explore the complete application, publish astronomical observations, and interact with other users.
+
 ---
 
 ## 🚀 Features
@@ -115,45 +123,92 @@ SQL queries include relational joins and aggregation to associate publications w
 
 ## 📸 Screenshots
 
-Screenshots and live demo will be added as the project portfolio is completed.
+### Authentication
+
+Users can create an account or sign in to access the application.
+
+![Stargaze Authentication](docs/screenshots/stargaze-auth.png)
+
+### Dashboard
+
+Authenticated users can create and share astronomical observations.
+
+![Stargaze Dashboard](docs/screenshots/stargaze-dashboard.png)
+
+### Community Observations
+
+Users can explore observations shared by the community, interact through likes, and manage their own publications.
+
+![Stargaze Publications](docs/screenshots/stargaze-publications.png)
 
 ---
 
 ## ⚙️ Installation
 
-Clone the repository:
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Furipe-Dono/stargaze.git
 ```
 
-Enter the project directory:
+### 2. Enter the project directory
 
 ```bash
 cd stargaze
 ```
 
-Install dependencies using Pipenv:
+### 3. Install dependencies
+
+Using Pipenv:
 
 ```bash
 pipenv install
 ```
 
-Activate the virtual environment:
+### 4. Activate the virtual environment
 
 ```bash
 pipenv shell
 ```
 
-Configure the MySQL database and environment variables required by the application.
+### 5. Configure environment variables
 
-Run the application:
+Create a local `.env` file based on the provided `.env.example`:
+
+```text
+MYSQLHOST=localhost
+MYSQLUSER=root
+MYSQLPASSWORD=your_password
+MYSQLDATABASE=stargaze_schema
+MYSQLPORT=3306
+SECRET_KEY=your_secret_key
+```
+
+Replace the example values with your local MySQL configuration.
+
+### 6. Create the database
+
+Create a MySQL database named:
+
+```text
+stargaze_schema
+```
+
+Then import the provided `schema.sql` file:
+
+```bash
+mysql -u root -p stargaze_schema < schema.sql
+```
+
+The schema will create the required `users`, `publications`, and `likes` tables with their relationships and constraints.
+
+### 7. Run the application
 
 ```bash
 python server.py
 ```
 
----
+Open the local address provided by Flask in your browser to start using Stargaze.
 
 ## 🎯 What I Practiced
 
