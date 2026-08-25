@@ -32,7 +32,7 @@ def register():
     data = {
         "first_name": request.form["first_name"],
         "last_name": request.form["last_name"],
-        "email": request.form["email"],
+        "email": request.form["email"].strip().lower(),
         "password": password_hash
     }
 
@@ -48,8 +48,8 @@ def register():
 def login():
 
     user = User.get_by_email({
-        "email": request.form["email"]
-    })
+    "email": request.form["email"].strip().lower()
+})
 
     if not user:
         flash(
