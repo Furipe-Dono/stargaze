@@ -88,7 +88,7 @@ class User:
             is_valid = False
 
         user = User.get_by_email({
-            "email": data["email"]
+            "email": data["email"].strip().lower()
         })
 
         if user:
